@@ -1,0 +1,38 @@
+{
+  "manifest_version": 3,
+
+  "name": "Klothed",
+  "description": "Klothed demo extension",
+  "version": "1.0",
+
+  "action": {
+    "default_icon": "icon.png",
+    "default_popup": "popup.html"
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["js/vendor.js", "js/content_script.js"]
+    }
+  ],
+
+  "web_accessible_resources": [
+    {
+      "resources": [ "js/inject.js", "images/*" ],
+      "matches": ["<all_urls>"]
+    }
+  ],
+
+  "background": {
+    "service_worker": "js/background.js"
+  },
+
+  "permissions": [
+    "storage"
+  ],
+
+  "host_permissions": [
+    "<all_urls>"
+  ]
+}
